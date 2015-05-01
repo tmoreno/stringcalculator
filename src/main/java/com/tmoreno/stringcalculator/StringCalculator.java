@@ -9,15 +9,12 @@ public class StringCalculator {
 		
 		String numbers[] = input.split(",");
 		
-		if (numbers.length > 1) {
-			int a = Integer.parseInt(numbers[0]);
-			int b = Integer.parseInt(numbers[1]);
-			
-			return a + b;
+		int result = 0;
+		for (String number : numbers) {
+			result += Integer.parseInt(number);
 		}
-		else {
-			return Integer.parseInt(numbers[0]);
-		}
+		
+		return result;
 	}
 
 }
