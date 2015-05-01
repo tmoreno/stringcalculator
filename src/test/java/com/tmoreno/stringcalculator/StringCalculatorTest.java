@@ -54,4 +54,10 @@ public class StringCalculatorTest {
 	public void twoDelimitersTogetherNotAllowed(){
 		calculator.add("1,\n3");
 	}
+	
+	@Test
+	public void supportDifferentDelimiters(){
+		result = calculator.add("//;\n1;2");
+		Assert.assertEquals(3, result);
+	}
 }
