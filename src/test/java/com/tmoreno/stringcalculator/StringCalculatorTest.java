@@ -2,9 +2,14 @@ package com.tmoreno.stringcalculator;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class StringCalculatorTest {
+	
+	@Rule
+	public ExpectedException expectedEx = ExpectedException.none();
 	
 	private StringCalculator calculator;
 	private int result;
@@ -59,5 +64,13 @@ public class StringCalculatorTest {
 	public void supportDifferentDelimiters(){
 		result = calculator.add("//;\n1;2");
 		Assert.assertEquals(3, result);
+	}
+	
+	@Test
+	public void negativeNumbersIsNotAllowed(){
+		expectedEx.expect(IllegalArgumentException.class); 
+		expectedEx.expectMessage("negatives not allowed: -1");
+		
+		calculator.add("-1");
 	}
 }
