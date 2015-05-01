@@ -25,5 +25,11 @@ public class StringCalculatorTest {
 		result = calculator.add("1");
 		Assert.assertEquals(1, result);
 	}
+	
+	@Test
+	public void addTwoNumbersReturnTheSum(){
+		result = calculator.add("1,2");
+		Assert.assertEquals(3, result);
+	}
 
 }
