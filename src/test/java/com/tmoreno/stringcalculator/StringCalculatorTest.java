@@ -49,4 +49,9 @@ public class StringCalculatorTest {
 		result = calculator.add("1\n2,3");
 		Assert.assertEquals(6, result);
 	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void twoDelimitersTogetherNotAllowed(){
+		calculator.add("1,\n3");
+	}
 }
