@@ -37,4 +37,10 @@ public class StringCalculatorTest {
 		result = calculator.add("1,2,3,4");
 		Assert.assertEquals(10, result);
 	}
+	
+	@Test
+	public void allowNewLineAsDelimiter(){
+		result = calculator.add("1\n2");
+		Assert.assertEquals(3, result);
+	}
 }
