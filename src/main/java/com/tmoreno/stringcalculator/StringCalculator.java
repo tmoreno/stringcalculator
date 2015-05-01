@@ -11,6 +11,10 @@ public class StringCalculator {
 			return 0;
 		}
 		
+		if (input.indexOf("\n,") > 0) {
+			throw new IllegalArgumentException();
+		}
+		
 		List<String> numbers = new ArrayList<>(); 
 
 		String inputWhitoutCommas[] = input.split(",");
