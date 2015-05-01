@@ -73,4 +73,12 @@ public class StringCalculatorTest {
 		
 		calculator.add("-1");
 	}
+	
+	@Test
+	public void negativesNumbersIsNotAllowed(){
+		expectedEx.expect(IllegalArgumentException.class); 
+		expectedEx.expectMessage("negatives not allowed: [-1, -4]");
+		
+		calculator.add("-1,3,-4");
+	}
 }
