@@ -43,4 +43,10 @@ public class StringCalculatorTest {
 		result = calculator.add("1\n2");
 		Assert.assertEquals(3, result);
 	}
+	
+	@Test
+	public void combineDelimiters(){
+		result = calculator.add("1\n2,3");
+		Assert.assertEquals(6, result);
+	}
 }
