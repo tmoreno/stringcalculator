@@ -1,21 +1,28 @@
 package com.tmoreno.stringcalculator;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class StringCalculatorTest {
+	
+	private StringCalculator calculator;
+	private int result;
+	
+	@Before
+	public void setUp() {
+		calculator = new StringCalculator();
+	}
     
 	@Test
 	public void addWithEmptyStringReturnZero(){
-		StringCalculator calculator = new StringCalculator();
-		int result = calculator.add("");
+		result = calculator.add("");
 		Assert.assertEquals(0, result);
 	}
 	
 	@Test
 	public void addWithOneNumberReturnThatNumber(){
-		StringCalculator calculator = new StringCalculator();
-		int result = calculator.add("1");
+		result = calculator.add("1");
 		Assert.assertEquals(1, result);
 	}
 
