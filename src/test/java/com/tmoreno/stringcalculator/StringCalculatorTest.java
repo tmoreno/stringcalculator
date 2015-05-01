@@ -11,5 +11,12 @@ public class StringCalculatorTest {
 		int result = calculator.add("");
 		Assert.assertEquals(0, result);
 	}
+	
+	@Test
+	public void addWithOneNumberReturnThatNumber(){
+		StringCalculator calculator = new StringCalculator();
+		int result = calculator.add("1");
+		Assert.assertEquals(1, result);
+	}
 
 }
