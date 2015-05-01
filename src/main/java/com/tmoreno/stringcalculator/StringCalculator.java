@@ -31,8 +31,21 @@ public class StringCalculator {
 		}
 		
 		int result = 0;
-		for (String number : numbers) {
-			result += Integer.parseInt(number);
+		int number;
+		List<Integer> negatives = new ArrayList<>();
+		for (String stringNumber : numbers) {
+			number = Integer.parseInt(stringNumber);
+			
+			if (number < 0) {
+				negatives.add(number);
+			}
+			else {
+				result += number;
+			}
+		}
+		
+		if (!negatives.isEmpty()) {
+			throw new IllegalArgumentException("negatives not allowed: " + negatives.toString());
 		}
 		
 		return result;
