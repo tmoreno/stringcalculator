@@ -6,11 +6,11 @@ import java.util.List;
 public class StringCalculator {
 
 	public int add(String input) {
-		if (input.isEmpty()) {
+		StringInput stringInput = StringInput.createFromInput(input);
+		
+		if (stringInput.getInput().isEmpty()) {
 			return 0;
 		}
-		
-		StringInput stringInput = StringInput.createFromInput(input);
 		
 		List<Integer> numbers = stringInput.getNumbers();
 				
