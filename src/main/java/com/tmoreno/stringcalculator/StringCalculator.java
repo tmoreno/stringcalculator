@@ -4,9 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StringCalculator {
+	
+	private Parser parser;
+	
+	public StringCalculator(Parser parser){
+		this.parser = parser;
+	}
 
 	public int add(String input) {
-		Parser parser = Parser.createFromInput(input);
+		parser.newInput(input);
 		
 		if (parser.getInput().isEmpty()) {
 			return 0;

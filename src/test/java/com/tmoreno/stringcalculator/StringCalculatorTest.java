@@ -16,7 +16,7 @@ public class StringCalculatorTest {
 	
 	@Before
 	public void setUp() {
-		calculator = new StringCalculator();
+		calculator = new StringCalculator(new Parser());
 	}
     
 	@Test

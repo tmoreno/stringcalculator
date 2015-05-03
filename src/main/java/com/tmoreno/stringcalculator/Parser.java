@@ -15,22 +15,18 @@ public class Parser {
 		input = "";
 	}
 	
-	public static Parser createFromInput(String input){
-		Parser parser = new Parser();
+	public void newInput(String newInput){
+		delimiter = DEFAULT_DEMILITER;
+		input = newInput;
 		
-		parser.setDelimiter(DEFAULT_DEMILITER);
-		parser.setInput(input);
-		
-		if (input.startsWith("//")) {
-			parser.setDelimiter(input.charAt(2) + "");
-			parser.setInput(input.substring(4));
+		if (newInput.startsWith("//")) {
+			delimiter = newInput.charAt(2) + "";
+			input = newInput.substring(4);
 		}
 		
-		if (parser.getInput().indexOf("\n" + parser.getDelimiter()) > 0) {
+		if (input.indexOf("\n" + delimiter) > 0) {
 			throw new IllegalArgumentException();
 		}
-		
-		return parser;
 	}
 	
 	public List<Integer> getNumbers(){
@@ -50,19 +46,7 @@ public class Parser {
 		return numbers;
 	}
 
-	public String getDelimiter() {
-		return delimiter;
-	}
-
-	private void setDelimiter(String delimiter) {
-		this.delimiter = delimiter;
-	}
-
 	public String getInput() {
 		return input;
-	}
-
-	private void setInput(String input) {
-		this.input = input;
 	}
 }
