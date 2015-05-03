@@ -3,34 +3,34 @@ package com.tmoreno.stringcalculator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StringInput {
+public class Parser {
 
 	private static final String DEFAULT_DEMILITER = ",";
 
 	private String delimiter;
 	private String input;
 	
-	public StringInput(){
+	public Parser(){
 		delimiter = DEFAULT_DEMILITER;
 		input = "";
 	}
 	
-	public static StringInput createFromInput(String input){
-		StringInput stringInput = new StringInput();
+	public static Parser createFromInput(String input){
+		Parser parser = new Parser();
 		
-		stringInput.setDelimiter(DEFAULT_DEMILITER);
-		stringInput.setInput(input);
+		parser.setDelimiter(DEFAULT_DEMILITER);
+		parser.setInput(input);
 		
 		if (input.startsWith("//")) {
-			stringInput.setDelimiter(input.charAt(2) + "");
-			stringInput.setInput(input.substring(4));
+			parser.setDelimiter(input.charAt(2) + "");
+			parser.setInput(input.substring(4));
 		}
 		
-		if (stringInput.getInput().indexOf("\n" + stringInput.getDelimiter()) > 0) {
+		if (parser.getInput().indexOf("\n" + parser.getDelimiter()) > 0) {
 			throw new IllegalArgumentException();
 		}
 		
-		return stringInput;
+		return parser;
 	}
 	
 	public List<Integer> getNumbers(){
