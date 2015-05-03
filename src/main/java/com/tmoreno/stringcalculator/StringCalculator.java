@@ -5,14 +5,14 @@ import java.util.List;
 
 public class StringCalculator {
 
-	public int add(String input) {
-		StringInput stringInput = StringInput.createFromInput(input);
+	public int add(String inputParam) {
+		StringInput input = StringInput.createFromInput(inputParam);
 		
-		if (stringInput.getInput().isEmpty()) {
+		if (input.getInput().isEmpty()) {
 			return 0;
 		}
 		
-		List<Integer> numbers = stringInput.getNumbers();
+		List<Integer> numbers = input.getNumbers();
 				
 		int result = 0;
 		List<Integer> negatives = new ArrayList<>();
