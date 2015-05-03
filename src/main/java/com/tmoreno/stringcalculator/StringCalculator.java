@@ -1,14 +1,15 @@
 package com.tmoreno.stringcalculator;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class StringCalculator {
 	
 	private Parser parser;
+	private AddOperation addOperation;
 	
-	public StringCalculator(Parser parser){
+	public StringCalculator(Parser parser, AddOperation addOperation){
 		this.parser = parser;
+		this.addOperation = addOperation;
 	}
 
 	public int add(String input) {
@@ -19,23 +20,7 @@ public class StringCalculator {
 		}
 		
 		List<Integer> numbers = parser.getNumbers();
-				
-		int result = 0;
-		List<Integer> negatives = new ArrayList<>();
-		for (Integer number : numbers) {
-			if (number < 0) {
-				negatives.add(number);
-			}
-			else {
-				result += number;
-			}
-		}
 		
-		if (!negatives.isEmpty()) {
-			throw new IllegalArgumentException("negatives not allowed: " + negatives.toString());
-		}
-		
-		return result;
+		return addOperation.add(numbers);
 	}
-
 }
